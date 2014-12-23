@@ -19,7 +19,7 @@ compile ('com.google.android.gms:play-services:6.1.+') {
 }
 ```
 
-HoloEverywhere use it's own repackaged version of android-library.
+HoloEverywhere use it's own repackaged version of support-v4.
 
 
 ![HoloEverywhere](https://github.com/Prototik/HoloEverywhere/raw/gh-pages/github-res/logo.png "HoloEverywhere")
