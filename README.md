@@ -2,13 +2,24 @@
 The objective of this fork is using the last tools (Android Studio 1.+) for legacy application.
 
 ## How to use?
- * Clone this repo as a git submodule
- * Add the libraries as submodules of your project
- * HoloEverywhere use it's own repackage version of android-library. So for each of your library excludes the support-v4. For instance:
+ * Add the Maven repository:
 
+```
+maven { url "http://archiva.sedona.fr/archiva/repository/internal" }
+```
+
+ * For each of your library excludes the support-v4. For instance:
+
+```
 compile (project(':facebook')){
     exclude group: 'com.android.support', module: 'support-v4'
 }
+compile ('com.google.android.gms:play-services:6.1.+') {
+    exclude group: 'com.android.support', module: 'support-v4'
+}
+```
+
+HoloEverywhere use it's own repackaged version of android-library.
 
 
 ![HoloEverywhere](https://github.com/Prototik/HoloEverywhere/raw/gh-pages/github-res/logo.png "HoloEverywhere")
