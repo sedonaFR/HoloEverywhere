@@ -1,18 +1,58 @@
-apply plugin: 'holoeverywhere-library'
+//apply plugin: 'holoeverywhere-library'
+//
+//holoeverywhere {
+//    apply 'android_default.gradle'
+//    publish.artifactId = 'library'
+//}
+//
+//dependencies {
+//    compile 'com.android.support:support-v4:19.2.0'
+//    compile 'com.nineoldandroids:library:2.4.0'
+//}
+//
+//javadoc {
+//    include "**/org/holoeverywhere/**"
+//    title "HoloEverywhere ${project.version} JavaDoc"
+//}
+//
+//apply plugin: 'holoeverywhere-publish'
 
-holoeverywhere {
-    apply 'android_default.gradle'
-    publish.artifactId = 'library'
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven { url "${System.env.ANDROID_HOME}/extras/android/m2repository" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+    }
 }
+
+apply plugin: 'android-library'
+
+repositories {
+    maven { url "http://dl.bintray.com/populov/maven" }
+    mavenCentral()
+    mavenLocal()
+}
+
 
 dependencies {
-    compile 'com.android.support:support-v4:19.2.0'
-    compile 'com.nineoldandroids:library:2.4.0'
+    //compile 'com.android.support:support-v4:19.+'
+    compile files('libs/nineoldandroids-2.4.0.jar')
+    compile files('libs/support-v4-19.1.0.jar')
 }
 
-javadoc {
-    include "**/org/holoeverywhere/**"
-    title "HoloEverywhere ${project.version} JavaDoc"
+android {
+    buildToolsVersion "19.1.0"
+    compileSdkVersion 21
+
+    defaultConfig {
+        targetSdkVersion 21
+        minSdkVersion 10
+        versionName "2.3"
+    }
+
 }
 
-apply plugin: 'holoeverywhere-publish'

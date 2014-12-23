@@ -1,14 +1,47 @@
-apply plugin: 'holoeverywhere-library'
+//apply plugin: 'holoeverywhere-library'
+//
+//holoeverywhere {
+//    apply 'android_default.gradle'
+//    publish.artifactId = "addon-${project.name}"
+//}
+//
+//dependencies {
+//    compile project(':library')
+//}
+//
+//javadoc.exclude "**/_*.java"
+//
+//apply plugin: 'holoeverywhere-publish'
 
-holoeverywhere {
-    apply 'android_default.gradle'
-    publish.artifactId = "addon-${project.name}"
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven { url "${System.env.ANDROID_HOME}/extras/android/m2repository" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+    }
 }
+
+apply plugin: 'android-library'
+
 
 dependencies {
     compile project(':library')
 }
 
-javadoc.exclude "**/_*.java"
+android {
+    buildToolsVersion "19.1.0"
+    compileSdkVersion 21
 
-apply plugin: 'holoeverywhere-publish'
+    defaultConfig {
+        targetSdkVersion 21
+        minSdkVersion 10
+        versionName "2.3"
+    }
+
+}
