@@ -1,4 +1,17 @@
-![HoloEverywhere](https://github.com/Prototik/HoloEverywhere/raw/gh-pages/github-res/logo.png "HoloEverywhere")  
+## What is this Fork?
+The objective of this fork is using the last tools (Android Studio 1.+) for legacy application.
+
+## How to use?
+ * Clone this repo as a git submodule
+ * Add the libraries as submodules of your project
+ * HoloEverywhere use it's own repackage version of android-library. So for each of your library excludes the support-v4. For instance:
+
+compile (project(':facebook')){
+    exclude group: 'com.android.support', module: 'support-v4'
+}
+
+
+![HoloEverywhere](https://github.com/Prototik/HoloEverywhere/raw/gh-pages/github-res/logo.png "HoloEverywhere")
 [![Build Status](https://travis-ci.org/Prototik/HoloEverywhere.png?branch=master)](https://travis-ci.org/Prototik/HoloEverywhere)  
 Latest stable version: [2.1.0 Darkest Sunrise](https://github.com/Prototik/HoloEverywhere/releases/tag/v2.1.0)  
 Demo: [Stable][APKDemoStable] | [Latest][APKDemoLatest]  
